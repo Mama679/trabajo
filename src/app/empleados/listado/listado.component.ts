@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap,Router  } from "@angular/router";
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../model/empleado';
 
@@ -10,8 +11,10 @@ import { Empleado } from '../model/empleado';
 export class ListadoComponent implements OnInit {
 
    empleados:Empleado[] = [];
-   displayedColumns:string[] = ['id','name','username','email','phone','website']
-  constructor(private servicio:EmpleadoService) {
+   displayedColumns:string[] = ['id','name','username','email','phone','website','accion']
+  constructor(private servicio:EmpleadoService, 
+              private route:ActivatedRoute,
+              private router:Router ) {
     
   }
 
@@ -28,5 +31,9 @@ export class ListadoComponent implements OnInit {
         console.log(resp);
       }
     });
+  }
+
+  onNuevo(){
+    this.router.navigate(['/empleado/formulario']);
   }
 }

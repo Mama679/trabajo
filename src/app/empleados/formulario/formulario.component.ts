@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../model/empleado';
 
 @Component({
   selector: 'app-formulario',
@@ -6,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './formulario.component.css'
 })
 export class FormularioComponent {
+
+  constructor(private servicio:EmpleadoService, private formBuider: FormBuilder){
+
+  }
 
 }
